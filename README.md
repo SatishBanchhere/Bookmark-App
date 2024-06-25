@@ -28,10 +28,10 @@ To run this project locally:
    
 2. Install dependencies:
   ```bash
-  npm install
+     npm install
 
 
 3. Run the app:
   ```bash
-  npm start
-  Open http://localhost:3000 to view it in the browser.
+     npm start
+     Open http://localhost:3000 to view it in the browser.
