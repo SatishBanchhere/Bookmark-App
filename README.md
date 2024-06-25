@@ -25,12 +25,13 @@ To run this project locally:
    ```bash
    git clone https://github.com/your-username/your-repository.git
    cd your-repository
-Install dependencies:
-
+   
+2. Install dependencies:
   ```bash
   npm install
-  Run the app:
 
+
+3. Run the app:
   ```bash
   npm start
   Open http://localhost:3000 to view it in the browser.
