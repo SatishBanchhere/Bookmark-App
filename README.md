@@ -33,13 +33,10 @@ To run this project locally:
 
 3. Run the app:
      ```bash
-        npm start
-        Open http://localhost:3000 to view it in the browser.
+        npm run dev
     ```
    Open http://localhost:3000 to view it in the browser.
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, fork the repository, make your changes, and submit a pull request.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
