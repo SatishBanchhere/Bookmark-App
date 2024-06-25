@@ -20,7 +20,9 @@ export function TopBar({ setAdd }) {
             <div className="inline-flex items-center justify-center text-3xl">
                 <p className="text-green-300">Bookmarks Online</p>
             </div>
-            {deleteMode ? <TopButtons2 title={"Delete mode is on"} onClick={deleteButtonClickHandle}></TopButtons2> : <TopButtons1 title={"Delete"} onClick={deleteButtonClickHandle} ></TopButtons1>}
+            <div>
+                {deleteMode ? <TopButtons2 title={"Delete mode is on"} onClick={deleteButtonClickHandle}></TopButtons2> : <TopButtons1 title={"Delete"} onClick={deleteButtonClickHandle} ></TopButtons1>}
+            </div>
         </div>
     )
 }

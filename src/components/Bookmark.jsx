@@ -60,16 +60,14 @@ export function MyData() {
 
 }
 function Card({ webName, Link }) {
-  let image = "https://logo.clearbit.com/" + Link;
-
-  const { losssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssgo } = useContext(DeletedModeContext);
+  const image = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${Link}&size=50`;
 
   return (<>
     <a className="group py-5 m-2 border-2 text-center px-10 text-black border-black bg-B4 hover:bg-customGreen hover:text-customBrown hover:text-2xl rounded-xl" href={Link}>
       {/* <a className="group py-5 m-2 border-2 text-center px-10 text-black border-black bg-B4 hover:bg-customGreen hover:text-customBrown rounded-xl" href={Link}> */}
       <div className="flex">
         <div>
-          <img src={image} alt={logo} className="h-10 group-hover:scale-125 transition-transform duration-300"></img>
+          <img src={image}  className="h-10 group-hover:scale-125 transition-transform duration-300"></img>
         </div>
         <div className="pt-2 pl-2 text-base group-hover:text-2xl transition-all duration-300">
           {webName}
@@ -80,19 +78,21 @@ function Card({ webName, Link }) {
   );
 }
 function Card2({ webName, Link, handleDeleteBookmark }) {
-
+  const image = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${Link}&size=50`;
   const [text, setText] = useState("");
 
-  let image = "https://logo.clearbit.com/" + Link;
   console.log(text);
   return (
     <button onClick={() => {
       console.log("lmao");
       handleDeleteBookmark({ webName, Link })
-    }} onMouseEnter={() => setText("Delete?")} onMouseLeave={() => setText("")} className="py-5 m-2 border-2 text-center px-10 text-black border-black bg-B4 hover:bg-red-500  hover:text-2xl rounded-xl" href={Link}>
-      <img src={image} className="h-10 group-hover:scale-125 transition-transform duration-300"></img>
-      {text == "" ? webName : text}
-      {/* {webName} */}
+    }} onMouseEnter={() => setText("Delete?")} onMouseLeave={() => setText("")} className="group py-5 m-2 border-2 text-center px-10 text-black border-black bg-B4 hover:bg-customGreen hover:text-customBrown hover:text-2xl rounded-xl" href={Link}>
+      <div className="flex">
+        <img src={image} className="h-10 group-hover:scale-125 transition-transform duration-300"></img>
+        <div className="pt-2 pl-2 group-hover:text-xl transition-all duration-300">
+          {text == "" ? webName : text}
+        </div>
+      </div>
     </button>
   );
 }
