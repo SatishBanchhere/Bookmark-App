@@ -5,8 +5,6 @@ import { TopBar } from './components/TopBar'
 import { Add } from './components/Add'
 import { DeletedProvider } from './Context APIs/DeleteMode'
 
-import reactLogo from './assets/react.svg'
-
 function App() {
   const [AddBookMark, setAdd] = useState(true)
   
