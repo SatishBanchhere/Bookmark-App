@@ -27,12 +27,19 @@ To run this project locally:
    cd your-repository
    
 2. Install dependencies:
-  ```bash
-     npm install
- ```
+     ```bash
+        npm install
+    ```
 
 3. Run the app:
-  ```bash
-     npm start
-     Open http://localhost:3000 to view it in the browser.
- ```
+     ```bash
+        npm start
+        Open http://localhost:3000 to view it in the browser.
+    ```
+   Open http://localhost:3000 to view it in the browser.
+
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, fork the repository, make your changes, and submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
