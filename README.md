@@ -3,6 +3,9 @@
 ## Overview
 This is a bookmarking application built with React and Tailwind CSS. It allows users to manage their favorite websites by adding, deleting, and persisting bookmarks across sessions.
 
+## Hosted Application
+The Bookmark App is hosted at [https://bookmark-app-rose.vercel.app/](https://bookmark-app-rose.vercel.app/). Feel free to visit and explore!
+
 ## Features
 - **Add Bookmark:** Users can add a new bookmark with a name and its corresponding URL.
 - **Delete Bookmark:** Provides functionality to delete any existing bookmark.
