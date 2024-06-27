@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import DeletedModeContext from "../Context APIs/DeleteMode";
 
-
-
 export function Bookmarks() {
     const [websiteName, setWebsiteName] = useState('');
     const [websiteLink, setWebsiteLink] = useState('');
@@ -21,7 +19,6 @@ export function Bookmarks() {
             setBookmarks(saveBookmarks);
         }
     }, [])
-
 
     function handleBookmark() {
         if (websiteName.trim() !== '' && websiteLink.trim() !== '') {
@@ -44,28 +41,36 @@ export function Bookmarks() {
         }
     }
 
-
-    return <div className="bg-B3 text-center">
-        <div >
-            <input
-                value={websiteName}
-                onChange={(e) => {
-                    setWebsiteName(e.target.value)
-                }} placeholder="Website Name" className="m-2 border-2 border-black rounded-md px-2 bg-B4 placeholder-black focus:outline-none" type="text" />
-        </div>
-        <div>
-            <input 
-                value={websiteLink}
-                onChange={(e) => {
-                setWebsiteLink(e.target.value)
-            }} placeholder="Website Link" className="m-2 border-2 border-black rounded-md px-2 bg-B4 placeholder-black focus:outline-none" type="text" />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3">
-            <div></div>
-            <div className="m-1 border-black border-2 rounded-md bg-blue-600 hover:bg-blue-400 text-10 select-none cursor-pointer" onClick={handleBookmark}>
-                Add Bookmarks
+    return (
+        <div className="bg-blue-300 text-center"> {/* Changed background color to blue-300 */}
+            <div>
+                <input
+                    value={websiteName}
+                    onChange={(e) => setWebsiteName(e.target.value)}
+                    placeholder="Website Name"
+                    className="m-2 border-2 border-black rounded-md px-2 bg-blue-400 placeholder-black focus:outline-none" // Changed input background color to blue-400
+                    type="text"
+                />
             </div>
-            <div></div>
+            <div>
+                <input
+                    value={websiteLink}
+                    onChange={(e) => setWebsiteLink(e.target.value)}
+                    placeholder="Website Link"
+                    className="m-2 border-2 border-black rounded-md px-2 bg-blue-400 placeholder-black focus:outline-none" // Changed input background color to blue-400
+                    type="text"
+                />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3">
+                <div></div>
+                <div
+                    className="m-1 border-black border-2 rounded-md bg-blue-600 hover:bg-blue-400 text-white select-none cursor-pointer" // Changed button colors to blue-600 and blue-400 on hover, text color to white
+                    onClick={handleBookmark}
+                >
+                    Add Bookmarks
+                </div>
+                <div></div>
+            </div>
         </div>
-    </div>
+    );
 }
