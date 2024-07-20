@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState, useEffect } from "react";
 import DeletedModeContext from "../Context APIs/DeleteMode";
 
-export function Bookmarks() {
+export function Bookmarks({ onClose }) {
     const [websiteName, setWebsiteName] = useState('');
     const [websiteLink, setWebsiteLink] = useState('');
     const [bookmarks, setBookmarks] = useState([
@@ -18,7 +18,7 @@ export function Bookmarks() {
         if (saveBookmarks && saveBookmarks.length > 0) {
             setBookmarks(saveBookmarks);
         }
-    }, [])
+    }, []);
 
     function handleBookmark() {
         if (websiteName.trim() !== '' && websiteLink.trim() !== '') {
@@ -39,37 +39,55 @@ export function Bookmarks() {
         } else {
             alert('Please enter both a website name and link.');
         }
+        onClose();
+    }
+
+    // Close modal when clicking outside of the box
+    function handleOverlayClick(e) {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
     }
 
     return (
-        <div className="bg-blue-300 text-center"> {/* Changed background color to blue-300 */}
-            <div>
-                <input
-                    value={websiteName}
-                    onChange={(e) => setWebsiteName(e.target.value)}
-                    placeholder="Website Name"
-                    className="m-2 border-2 border-black rounded-md px-2 bg-blue-400 placeholder-black focus:outline-none" // Changed input background color to blue-400
-                    type="text"
-                />
-            </div>
-            <div>
-                <input
-                    value={websiteLink}
-                    onChange={(e) => setWebsiteLink(e.target.value)}
-                    placeholder="Website Link"
-                    className="m-2 border-2 border-black rounded-md px-2 bg-blue-400 placeholder-black focus:outline-none" // Changed input background color to blue-400
-                    type="text"
-                />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3">
-                <div></div>
-                <div
-                    className="m-1 border-black border-2 rounded-md bg-blue-600 hover:bg-blue-400 text-white select-none cursor-pointer" // Changed button colors to blue-600 and blue-400 on hover, text color to white
-                    onClick={handleBookmark}
+        <div
+            className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-40"
+            onClick={handleOverlayClick}
+        >
+            <div className="bg-white text-center p-4 rounded-lg shadow-lg relative w-80">
+                <button
+                    className="absolute top-2 right-2 text-red-500 hover:text-red-700 text-3xl font-bold select-none"
+                    onClick={onClose}
                 >
-                    Add Bookmarks
+                    &times;
+                </button>
+
+                <div>
+                    <input
+                        value={websiteName}
+                        onChange={(e) => setWebsiteName(e.target.value)}
+                        placeholder="Website Name"
+                        className="m-2 border-2 border-gray-300 rounded-md px-2 bg-gray-100 placeholder-gray-600 focus:outline-none select-none"
+                        type="text"
+                    />
                 </div>
-                <div></div>
+                <div>
+                    <input
+                        value={websiteLink}
+                        onChange={(e) => setWebsiteLink(e.target.value)}
+                        placeholder="Website Link"
+                        className="m-2 border-2 border-gray-300 rounded-md px-2 bg-gray-100 placeholder-gray-600 focus:outline-none select-none"
+                        type="text"
+                    />
+                </div>
+                <div className="flex justify-center">
+                    <button
+                        className="m-2 border-2 border-gray-300 rounded-md bg-teal-600 hover:bg-teal-500 text-white px-4 py-2 cursor-pointer transition duration-300 ease-in-out"
+                        onClick={handleBookmark}
+                    >
+                        Add Bookmark
+                    </button>
+                </div>
             </div>
         </div>
     );
