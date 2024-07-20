@@ -35,9 +35,9 @@ export function Bookmarks({ onClose }) {
             setWebsiteName('');
             setWebsiteLink('');
 
-            alert('Bookmark added');
+            // alert('Bookmark added');
         } else {
-            alert('Please enter both a website name and link.');
+            // alert('Please enter both a website name and link.');
         }
         onClose();
     }
