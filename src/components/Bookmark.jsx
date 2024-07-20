@@ -40,10 +40,23 @@ function Card({ webName, Link, handleDeleteBookmark, deleteMode }) {
   const image = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${Link}&size=50`;
 
   return (
-    <a className={` z-30 group py-5 m-4 border-2 text-center px-10 text-black border-gray-300 bg-white shadow-md hover:bg-green-600 hover:text-white rounded-xl transition-all duration-300 transform ${deleteMode ? 'hidden' : ''}`} href={Link}>
+    <a
+      className={`z-30 group py-5 m-4 border-2 text-center px-10 border-gray-300 bg-white shadow-md rounded-xl transition-all duration-300 transform 
+      ${deleteMode ? 'hidden' : ''} 
+      hover:bg-green-600 hover:text-white`}
+      href={Link}
+    >
       <div className="flex items-center justify-center">
-        <img src={image} className="h-10 transition-transform duration-300 group-hover:scale-125" alt={webName} />
-        <div className="pl-2 text-lg group-hover:text-white transition-all duration-300 flex items-center">
+        <img
+          src={image}
+          className="h-10 transition-transform duration-300 transform group-hover:scale-125"
+          alt={webName}
+        />
+        <div
+          className={`pl-2 text-lg transition-all duration-300 flex items-center text-black ${
+            'group-hover:text-white'
+          }`}
+        >
           {webName}
         </div>
       </div>
@@ -51,15 +64,29 @@ function Card({ webName, Link, handleDeleteBookmark, deleteMode }) {
   );
 }
 
+
 function Card2({ webName, Link, handleDeleteBookmark }) {
   const image = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${Link}&size=50`;
   const [text, setText] = useState("");
 
   return (
-    <button onClick={() => handleDeleteBookmark({ webName, Link })} onMouseEnter={() => setText("Delete?")} onMouseLeave={() => setText("")} className="group py-5 m-4 border-2 text-center px-10 text-black border-gray-300 bg-white shadow-md hover:bg-red-600 hover:text-white rounded-xl transition-all duration-300 transform">
+    <button
+      onClick={() => handleDeleteBookmark({ webName, Link })}
+      onMouseEnter={() => setText("Delete?")}
+      onMouseLeave={() => setText("")}
+      className="group py-5 m-4 border-2 text-center px-10 text-black border-gray-300 bg-white shadow-md hover:bg-red-600 hover:text-white rounded-xl transition-all duration-300 transform"
+    >
       <div className="flex items-center justify-center">
-        <img src={image} className="h-10 transition-transform duration-300 group-hover:scale-125" alt={webName} />
-        <div className="pl-2 text-lg group-hover:text-white transition-all duration-300 flex items-center">
+        <img
+          src={image}
+          className="h-10 transition-transform duration-300 group-hover:scale-125"
+          alt={webName}
+        />
+        <div
+          className={`pl-2 text-lg transition-all duration-300 flex items-center ${
+            text === "" ? "text-black" : "text-white"
+          }`}
+        >
           {text === "" ? webName : text}
         </div>
       </div>
